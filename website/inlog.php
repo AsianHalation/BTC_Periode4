@@ -18,7 +18,7 @@
                 <input type="text" name="naam">
 
                 <label for="wachtwoord">wachtwoord</label>
-                <input type="text" name="wachtwoord">
+                <input type="password" name="wachtwoord">
 
                 <input type="submit" name="login" value="Log in">
             </form>

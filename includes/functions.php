@@ -6,17 +6,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 function check_login() {
-$query = "SELECT * FROM tblRiddles WHERE Creator <> 'Admin' ";
-$result = $conn->query($query);
-}
 
-$stmt = $pdo->query("SELECT * FROM tennisbtc.leden");
-            $result = $stmt->fetchAll();
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
+        // Simulate user login for demonstration (replace with real authentication)
+        $username = $_POST["naam"];
+        $password = $_POST["wachtwoord"];
 
-            foreach ($result as $row) {
-                echo "<tr>";
-                echo "<td>" . $row['product_code'] . "</td>" . "<br>";
-                echo "<td>" . $row['prijs_per_stuk'] . "</td>";
-                echo "<td>" . $row['omschrijving'] . "</td>";
-                echo "</tr>";
+        // Replace this with actual user verification (e.g., database query)
+        if ($username == "admin" && $password == "1234") {
+            $_SESSION["loggedin"] = true; // Set session variable
+        } else {
+            echo "Invalid login credentials.";
+        }
+    }
+
 }
