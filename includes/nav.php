@@ -4,7 +4,7 @@
             <a href="homepage.php">Home</a>
             <a href="inlog.php">login</a>
             <?php
-                if (isset($_SESSION["inlognaam"]) && $_SESSION["wachtwoord"] == true) {
+                if (isset($_SESSION["inlognaam"]) && $_SESSION["loggedin"] == true) {
                     echo "<a href='print.php'>rooster en leden</a>";
                     echo "<a href='../includes/logout.php'>Uitloggen</a>";
                 }

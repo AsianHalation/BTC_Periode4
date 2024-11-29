@@ -14,9 +14,9 @@
     <div class="content">
         <h2>Jesse</h2>
             <?php
-
-                if (isset($_SESSION["inlognaam"]) && $_SESSION["wachtwoord"] == true) {
-                    echo "<h2>Welcome, $username!</h2>";
+                //conditie als er is ingelogd + juiste username
+                if (isset($_SESSION["inlognaam"]) && $_SESSION["loggedin"] == true) {
+                    echo "<h2>Tweaking met , {$_SESSION['inlognaam']}!</h2>";
                 
                     $query = "SELECT * FROM leden WHERE naam <> 'emailadres' ";
                     $result = $conn->query($query);
@@ -33,7 +33,7 @@
                     }
                     echo "</table>";
                 } else {
-                    // If not logged in, show the login form
+                    // Als er niet is ingelogd stuur het terug naar homepagina
                     header("Location: homepage.php");
                 }
             ?>
