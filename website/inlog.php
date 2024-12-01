@@ -6,17 +6,17 @@ include "../includes/functions.php";
 include "../includes/header.php";
 include "../includes/nav.php";
 
-// Handle the login form submission
+//Form check is de form is ingevuld
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     $username = $_POST["inlognaam"];
     $password = $_POST["wachtwoord"];
 
     // Validate login
-    if (validate_login($username, $password, $conn)) {
-        // Redirect to a protected page or dashboard after successful login
+    if (logincheck($username, $password, $conn)) {
+        //als er succesvol is ingelogd dan verwijst het naar de homepagina
         header('location: homepage.php');
     } else {
-        $error_message = "Invalid username or password.";
+        $error = "Invalid username or password.";
     }
 }
 
@@ -41,9 +41,9 @@ include "../css/inlog.css";
     </form>
 
     <?php
-    // Display error message if login fails
-    if (!empty($error_message)) {
-        echo "<p style='color: red;'>$error_message</p>";
+    //echo de error variabele uit de if else statement van de logincheck functie
+    if (!empty($error)) {
+        echo "<p style='color: red;'>$error</p>";
     }
     ?>
 </div>
